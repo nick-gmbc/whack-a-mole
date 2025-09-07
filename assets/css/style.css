@@ -1,0 +1,13 @@
+.mole {
+    width: 100px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 310px;
+}
+
+.grid-container > div {
+    
+}
