@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 })
 
-let moleID = "";
+let moleIDArray = [];
+
+
 function randInt(min, max) {
     return Math.trunc(Math.random() * max) + min;
 }
@@ -20,11 +22,17 @@ function randInt(min, max) {
 showMole();
 
 async function showMole() {
-    let moleNo = randInt(1,9);
-    moleID = "mole" + moleNo;
-    console.log(moleID);
-    document.getElementById(moleID).style.visibility = "visible";
-    setTimeout(hideMole, 1500);
+    let numberOfMoles = randInt(1, 3);
+    count = 0;
+    while (count < numberOfMoles) {
+        let moleNo = randInt(1,9);
+        let moleID = "mole" + moleNo;
+        console.log(moleID);
+        document.getElementById(moleID).style.visibility = "visible";
+        count++;
+        moleIDArray.push(moleID)
+    }
+    //setTimeout(hideMole, 1500);
     console.log(moleID + " finihsed");
 }
 
