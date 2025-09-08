@@ -32,12 +32,15 @@ async function showMole() {
         count++;
         moleIDArray.push(moleID)
     }
-    //setTimeout(hideMole, 1500);
+    setTimeout(hideMole, 2500);
     console.log(moleID + " finihsed");
 }
 
 function hideMole() {
-    document.getElementById(moleID).style.visibility = "hidden";
+    moleIDArray.forEach((item, index) => {
+        document.getElementById(item).style.visibility = "hidden";
+    });
+    moleIDArray = [];
     setTimeout(showMole, 1000);
 }
 
