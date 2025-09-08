@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Add the click event listener
         image.addEventListener("click", function(event) {
             increaseScore();
+            updateWhackRate();
             event.target.style.visibility = "hidden";
         });
         count++;
@@ -31,6 +32,7 @@ async function showMole() {
         console.log(moleID);
         document.getElementById(moleID).style.visibility = "visible";
         increaseTotal();
+        updateWhackRate();
         count++;
         moleIDArray.push(moleID)
     }
@@ -56,4 +58,11 @@ function increaseTotal() {
     let total = document.getElementById("total").innerText;
     total++;
     document.getElementById("total").innerText = total;
+}
+
+function updateWhackRate() {
+    let score = document.getElementById("score").innerText;
+    let total = document.getElementById("total").innerText;
+    let rate = Math.round(score/total * 100);
+    document.getElementById("rate").innerText = rate;
 }
