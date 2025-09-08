@@ -36,7 +36,7 @@ async function showMole() {
         count++;
         moleIDArray.push(moleID)
     }
-    setTimeout(hideMole, 1500);
+    setTimeout(hideMole, getDelay());
     console.log(moleID + " finihsed");
 }
 
@@ -65,4 +65,16 @@ function updateWhackRate() {
     let total = document.getElementById("total").innerText;
     let rate = Math.round(score/total * 100);
     document.getElementById("rate").innerText = rate;
+}
+
+function getDelay() {
+    let delay = 20000;
+    if (document.getElementById("superEasy").checked) {
+        delay = document.getElementById("superEasy").value;
+    } else if (document.getElementById("easy").checked) {
+        delay = document.getElementById("easy").value;
+    } else {
+        delay = document.getElementById("harder").value;
+    }
+    return delay;
 }
