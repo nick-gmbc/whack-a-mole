@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Add the click event listener
         image.addEventListener("click", function(event) {
             increaseScore();
+            event.target.style.visibility = "hidden";
         });
         count++;
     }
@@ -29,10 +30,11 @@ async function showMole() {
         let moleID = "mole" + moleNo;
         console.log(moleID);
         document.getElementById(moleID).style.visibility = "visible";
+        increaseTotal();
         count++;
         moleIDArray.push(moleID)
     }
-    setTimeout(hideMole, 2500);
+    setTimeout(hideMole, 1500);
     console.log(moleID + " finihsed");
 }
 
@@ -48,4 +50,10 @@ function increaseScore() {
     let score = document.getElementById("score").innerText;
     score++;
     document.getElementById("score").innerText = score;
+}
+
+function increaseTotal() {
+    let total = document.getElementById("total").innerText;
+    total++;
+    document.getElementById("total").innerText = total;
 }
